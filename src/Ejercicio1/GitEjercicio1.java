@@ -5,6 +5,8 @@
  */
 package Ejercicio1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adalberto
@@ -28,24 +30,184 @@ public class GitEjercicio1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtInvertidad = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
+        txtPorcentaje = new javax.swing.JTextField();
+        cmdPorcentaje = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel1.setText("total de la cantida invertida en el banco");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("cantidad invertidad:");
+        jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jLabel2KeyTyped(evt);
+            }
+        });
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Cantidad total :");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
+
+        txtInvertidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtInvertidadActionPerformed(evt);
+            }
+        });
+        txtInvertidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInvertidadKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtInvertidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 60, -1));
+
+        txtTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalActionPerformed(evt);
+            }
+        });
+        txtTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTotalKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 60, -1));
+
+        txtPorcentaje.setEditable(false);
+        jPanel1.add(txtPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 140, -1));
+
+        cmdPorcentaje.setForeground(new java.awt.Color(255, 255, 0));
+        cmdPorcentaje.setText("porcentaje");
+        cmdPorcentaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdPorcentajeActionPerformed(evt);
+            }
+        });
+        cmdPorcentaje.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmdPorcentajeKeyTyped(evt);
+            }
+        });
+        jPanel1.add(cmdPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
+
+        cmdBorrar.setForeground(new java.awt.Color(255, 51, 0));
+        cmdBorrar.setText("borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalActionPerformed
+
+    private void jLabel2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2KeyTyped
+
+    private void cmdPorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPorcentajeActionPerformed
+        String res;
+        double ci,ct,resul;
+        
+        
+         if(txtInvertidad.getText().isEmpty()){
+             JOptionPane.showMessageDialog(this, "digite la cantidad invertida ","error",JOptionPane.ERROR_MESSAGE);
+             txtTotal.requestFocusInWindow();
+         }
+       else if (txtTotal.getText().isEmpty()){
+           JOptionPane.showMessageDialog (this, "digite el total ","error",JOptionPane.ERROR_MESSAGE);
+           txtTotal.requestFocusInWindow();
+       }
+       else{
+       
+        
+
+       ci =Double.parseDouble(txtInvertidad.getText());
+       ct =Double.parseDouble(txtTotal.getText());
+       
+      resul = ct-ci;
+      
+      res =String.valueOf(resul);
+        txtPorcentaje.setText(res);
+       
+               
+       }
+    }//GEN-LAST:event_cmdPorcentajeActionPerformed
+
+    private void cmdPorcentajeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmdPorcentajeKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdPorcentajeKeyTyped
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtInvertidad.setText("");
+        txtTotal.setText("");
+        txtPorcentaje.setText("");
+        
+        txtInvertidad.requestFocusInWindow();
+        
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtInvertidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInvertidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInvertidadActionPerformed
+
+    private void txtInvertidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInvertidadKeyTyped
+char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+              
+          }
+        
+    }//GEN-LAST:event_txtInvertidadKeyTyped
+
+    private void txtTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTotalKeyTyped
+        char c=evt.getKeyChar(); 
+             
+         
+          if(!Character.isDigit(c)) { 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+               
+              
+          }
+        
+    }//GEN-LAST:event_txtTotalKeyTyped
 
     /**
      * @param args the command line arguments
@@ -83,6 +245,14 @@ public class GitEjercicio1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdPorcentaje;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtInvertidad;
+    private javax.swing.JTextField txtPorcentaje;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
